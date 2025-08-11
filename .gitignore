@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+.dist
+
+# Build artifacts
+coverage
+dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Local data / volumes
+mongo_data*
+docker-data/
+
+# Keys / certs
+*.pem
+*.key
+*.crt
+
+# Misc
+*.local
+*.tgz
