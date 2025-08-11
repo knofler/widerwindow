@@ -10,7 +10,13 @@ export default function SiteHeader({ right }: { right?: React.ReactNode }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <header className={`sticky top-0 z-40 w-full backdrop-blur border-b transition-colors ${scrolled ? 'bg-white/80 dark:bg-surface/70 border-border shadow-sm' : 'bg-white/60 dark:bg-surface/40 border-transparent'}`}>
+    <header
+      className={`sticky top-0 z-40 w-full backdrop-blur transition-colors border-b border-gray-200 dark:border-transparent ${
+        scrolled
+          ? 'bg-white/90 dark:bg-surface/75 shadow-sm dark:shadow-[0_1px_0_0_rgba(255,255,255,0.03),0_0_0_1px_rgba(0,0,0,0.5)_inset]'
+          : 'bg-white/60 dark:bg-surface/40 dark:shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]' }
+      `}
+    >
       <div className="mx-auto flex items-center gap-8 px-6 md:px-10 h-16 max-w-6xl">
         <Link href="/" className="font-semibold tracking-tight text-lg">WiderWindow</Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">

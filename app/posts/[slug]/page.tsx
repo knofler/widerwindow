@@ -41,6 +41,8 @@ export default async function PostPage({ params }: Props) {
         <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
           {dateStr && <time dateTime={new Date(date).toISOString()}>{dateStr}</time>}
           <span>·</span>
+          <span>{post.authorName || 'Admin'}</span>
+          <span>·</span>
           <span>{minutes} min read</span>
           {post.tags?.length > 0 && (
             <span className="flex flex-wrap gap-2">{post.tags.map((t: string) => (

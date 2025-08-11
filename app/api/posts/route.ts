@@ -27,7 +27,8 @@ export async function POST(req: Request) {
       editorState: data.editorState || null,
       tags: Array.isArray(data.tags) ? data.tags : [],
       published: !!data.published,
-      affiliateLinks: data.affiliateLinks || []
+      affiliateLinks: data.affiliateLinks || [],
+      authorName: data.authorName || 'Admin'
     };
 
     async function createWithRetry(max=5) {

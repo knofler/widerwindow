@@ -14,6 +14,7 @@ const PostSchema = new Schema({
   published: { type: Boolean, default: false },
   publishedAt: { type: Date },
   authorId: { type: Schema.Types.ObjectId, ref: 'User' },
+  authorName: { type: String, default: 'Admin' },
   affiliateLinks: [{ label: String, url: String, clicks: { type: Number, default: 0 } }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
