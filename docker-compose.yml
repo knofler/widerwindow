@@ -1,0 +1,30 @@
+services:
+  web-dev:
+    build:
+      context: .
+      target: dev
+    container_name: widerwindow_web_dev
+    # Run conditional install inside container (no host npm) then start dev server
+    command: sh -c "if [ ! -d node_modules/@tailwindcss/typography ]; then echo '>> Dependency missing, installing...'; npm install --no-audit --no-fund; fi; npm run dev"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/widerwindow
+      - NODE_ENV=development
+      - NEXT_PUBLIC_BASE_URL=http://localhost:4030
+      - CHOKIDAR_USEPOLLING=1
+    ports:
+      - "4030:3000"
+    volumes:
+      - .:/app:cached
+      - /app/node_modules
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:7
+    container_name: widerwindow_mongo
+    restart: unless-stopped
+    ports:
+      - "27060:27017"
+    volumes:
+      - mongo_data_widerwindow:/data/db
+volumes:
+  mongo_data_widerwindow:
